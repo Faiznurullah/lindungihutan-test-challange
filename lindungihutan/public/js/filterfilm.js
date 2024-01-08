@@ -4,7 +4,10 @@ $(document).ready(function() {
         // Lakukan AJAX untuk mendapatkan data sesuai dengan filter
         $.ajax({
             type: 'GET',
-            url: '/getDataByFilterArtis/' + filterValue, // Sesuaikan dengan rute yang sesuai
+            url: '/getDataByFilterFilm/' + filterValue, // Sesuaikan dengan rute yang sesuai
+            // success: function(data){
+            //     console.log(data)
+            // },
             success: function(data) {
                 // Hapus isi tabel
                 $('#table-posts').empty();
@@ -13,11 +16,12 @@ $(document).ready(function() {
                 data.forEach(function(item) {
                     var row = '<tr id="index_' + item.id + '">' +
                         '<td>' + item.code + '</td>' +
-                        '<td>' + item.name + '</td>' +
-                        '<td>' + item.gender + '</td>' +
-                        '<td>' + item.salary + '</td>' +
-                        '<td>' + item.award + '</td>' +
-                        '<td>' + item.country + '</td>' +
+                        '<td>' + item.title + '</td>' +
+                        '<td>' + item.get_genre.name + '</td>' +
+                        '<td>' + item.get_artis.name + '</td>' +
+                        '<td>' + item.get_produser.name + '</td>' +
+                        '<td>' + item.income + '</td>' +
+                        '<td>' + item.nomination + '</td>' +
                         '<td>' +
                         '<a href="javascript:void(0)" id="btn-edit-post" data-id="' + item.id + '" class="btn btn-primary btn-sm ml-1">EDIT</a>' +
                         '<a href="javascript:void(0)" id="btn-delete-post" data-id="' + item.id + '" class="btn btn-danger btn-sm">DELETE</a>' +

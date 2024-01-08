@@ -142,4 +142,22 @@ class FilmController extends Controller
         $country->delete();
         return response()->json(['success' => 'Data berhasil dihapus.']);
     }
+
+    public function getDataByFilter($value){
+
+        if ($value == 1) {
+           $data=  film::orderBy('nomination', 'desc')
+              ->orderBy('title', 'asc')->with(['getGenre', 'getArtis', 'getProduser'])  
+              ->get();
+       } elseif ($value == 2) {
+            $data = film::where('title', 'LIKE', '%n')->with(['getGenre', 'getArtis', 'getProduser'])->get();
+       } elseif ($value == 3) {
+           $data = film::where('title', 'LIKE', '%s%')->orderBy('income', 'desc')->with(['getGenre', 'getArtis', 'getProduser'])->get();
+       } else {
+           $data = film::latest()->with(['getGenre', 'getArtis', 'getProduser'])->get();
+       }
+
+       return response()->json($data);
+
+    }
 }

@@ -11,9 +11,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ArtisController::class, 'index'])->name('artis.index');
 Route::put('/artis/{id}', [ArtisController::class, 'update']);
 Route::delete('/artis/{id}', [ArtisController::class, 'destroy']); 
-Route::get('/getDataByFilter/{filterValue}', [ArtisController::class, 'getDataByFilter'])->name('artis.getDataByFilter');
+Route::get('/getDataByFilterArtis/{filterValue}', [ArtisController::class, 'getDataByFilter'])->name('artis.getDataByFilter');
 Route::resource('/artis', ArtisController::class);
 
+
+Route::get('/getDataByFilterFilm/{filterValue}', [FilmController::class, 'getDataByFilter'])->name('film.getDataByFilter');
 Route::put('/film/{id}', [FilmController::class, 'update']);
 Route::delete('/film/{id}', [FilmController::class, 'destroy']);
 Route::resource('/film', FilmController::class);
