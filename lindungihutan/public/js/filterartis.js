@@ -15,7 +15,7 @@ $(document).ready(function() {
                         '<td>' + item.code + '</td>' +
                         '<td>' + item.name + '</td>' +
                         '<td>' + item.gender + '</td>' +
-                        '<td>' + item.salary + '</td>' +
+                        '<td>' + item.salary.toLocaleString('en-US', { style: 'decimal' }) + '</td>' +
                         '<td>' + item.award + '</td>' +
                         '<td>' + item.country + '</td>' +
                         '<td>' +

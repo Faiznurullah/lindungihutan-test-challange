@@ -20,7 +20,7 @@ $(document).ready(function() {
                         '<td>' + item.get_genre.name + '</td>' +
                         '<td>' + item.get_artis.name + '</td>' +
                         '<td>' + item.get_produser.name + '</td>' +
-                        '<td>' + item.income + '</td>' +
+                        '<td>' + item.income.toLocaleString('en-US', { style: 'decimal' }) + '</td>' +
                         '<td>' + item.nomination + '</td>' +
                         '<td>' +
                         '<a href="javascript:void(0)" id="btn-edit-post" data-id="' + item.id + '" class="btn btn-primary btn-sm ml-1">EDIT</a>' +
