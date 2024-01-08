@@ -21,7 +21,7 @@ class CreateArtisTable extends Migration
             $table->integer('salary');
             $table->integer('award');
             $table->string('country');
-            $table->foreign('country')->references('code')->on('countries');
+            $table->foreign('country')->references('code')->on('countries')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
